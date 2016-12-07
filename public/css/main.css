@@ -1,0 +1,164 @@
+
+body {
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+.navuser {
+	padding: 15px 10px;
+	display: inline-block;
+}
+
+#pollchoices {
+	list-style:none;
+	margin: 0;
+	padding: 0;
+}
+
+#pollchoices li {
+	margin-top: 5px;
+}
+
+#myPollsUL {
+	list-style: none;
+}
+
+#myPollsUL li{
+	margin-bottom: 10px;
+}
+
+#myPollsUL a{
+	margin-right: 10px;
+}
+
+#twitter {
+	width: 140px;
+	margin-top: 20px;
+	background-color: #1da1f2;
+}
+
+.multi-line-button { 
+	white-space: normal !important; 
+    /*width: 400px !important; */
+}
+
+/*canvas {*/
+/*	max-width: 400px;*/
+/*}*/
+
+#legendTable {
+	border-collapse: separate;
+    border-spacing: 0 4px;
+}
+
+.legendTD {
+	text-align: right;
+	padding: 3px 8px 3px 0;
+	min-width: 30px;
+}
+
+.legendResponse {
+	padding-left: 10px;
+}
+
+#login {
+	background-color: yellow;
+	float: right;
+}
+
+/****** Header Styling ******/
+.menu {
+	text-decoration: none;
+	padding: 6px;
+	margin: 0;
+	color: #727272;
+}
+
+.menu:visited {
+	color: #727272;
+}
+
+.menu:hover {
+	color: #FFA000;
+}
+
+.menu:active {
+	color: #FF630D;
+}
+
+#display-name {
+	font-weight: 400;
+}
+
+/****** Login Styling ******/
+
+.login {
+	margin: 86px auto 0 auto;
+	text-align: center;
+}
+
+#login-btn {
+	width: 225px;
+	padding: 7px 5px;
+}
+
+
+
+/****** Click Styling ******/
+
+.btn-container {	/* Styling for the div that contains the buttons */
+	margin: -10px auto 0 auto;
+	text-align: center;
+}
+
+
+
+.btn:focus {	/* Remove outline when hovering over button */
+	outline: none;
+}
+
+.btn:active {	/* Scale the button down by 10% when clicking on button */
+	transform: scale(0.9, 0.9);
+	-webkit-transform: scale(0.9, 0.9);
+	-moz-transform: scale(0.9, 0.9);
+}
+
+
+/****** Profile Styling ******/
+
+.github-profile {
+	width: 350px;
+	height: 200px;
+	border-radius: 3px;
+	margin: 86px auto 0 auto;
+	background-color: #EEE;
+	text-align: center;
+	color: #000;
+}
+
+.github-profile p:first-child {
+	padding-top: 16px;
+}
+
+.github-profile p:nth-child(5) {
+	margin-bottom: 16px
+}
+
+.github-profile p {
+	margin: 0 0 0 16px;
+	text-align: left;
+}
+
+.github-profile > img {
+	padding-top: 16px;
+	margin-bottom: 16px;
+}
+
+.github-profile .menu:hover {
+	color: #FFA000;
+}
+
+.github-profile .menu:active {
+	color: #FF630D;
+}

@@ -1,0 +1,10 @@
+include partials/header
+#main
+    .col-sm-2
+    .col-sm-10
+        h3 My Polls
+        ul#myPollsUL
+            each poll in polls
+                li
+                    a.btn.btn-primary.btn-sm(href='/edit/'+encodeURIComponent(poll.name)) Edit
+                    a(href='/poll/'+encodeURIComponent(poll.name))= poll.name

@@ -1,0 +1,20 @@
+include partials/header
+#main
+	.row
+		.col-sm-2
+		form.form-horizontal(action='/edit/'+encodeURIComponent(poll.name), method='post')
+			fieldset
+				legend #{poll.name}
+				.form-group
+					label.control-label.col-sm-2(for='answers') Response choices
+					.col-sm-6
+						input.form-control(type='text', name='answers', value=poll.choices.join(','))
+						p.help-block Separate options with commas
+				.form-group
+					.col-sm-2
+					.col-sm-6
+						input.pull-right(type='submit', name='submit', value='Update')
+	.row
+		.col-sm-9
+			form.form-horizontal(action='/delete/'+encodeURIComponent(poll.name), method='post')
+				input.pull-right(type='submit', name='submit', value='Delete')

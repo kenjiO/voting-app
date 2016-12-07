@@ -1,0 +1,73 @@
+include partials/header
+#main
+  .row
+    .col-sm-2
+    .col-sm-4
+      h4 #{poll.name}
+      ul#pollchoices
+        each choice in poll.choices
+          li
+            a.btn.btn-primary.btn-block.multi-line-button(href='/poll/'+encodeURIComponent(poll.name)+'/'+encodeURIComponent(choice))= choice
+        .row(style="margin-top: 50px;")
+      a#twitter.btn.btn-primary(href=twitterLink) Share on Twitter
+    .col-sm-4
+      // - for (var i = 0; i < poll.choices.length; ++i) {
+      //     p= (poll.choices[i] + " : " + poll.results[i])
+      // - }
+      
+      #chart
+        #legend
+        //canvas#myChart(width='400', height='400')
+        canvas#myChart
+
+ 
+script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js')
+script.
+  var labels = !{labels};
+  var results = !{results};
+  var colors = ["#5DA5DA", "#FAA43A", "#60BD68", "#F17CB0", "#B2912F", "#B276B2", "#DECF3F", "#F15854",
+                "#8D8D8D", "#9DE5FA", "#FAF48A", "#A0FDA8", "#F1ACF0", "#F2C16F", "#F2A6F2", "#FEFF8F", "#F19894"];
+  Chart.defaults.global.defaultFontSize = 16;
+  Chart.defaults.global.legend.display = false;
+  var ctx = document.getElementById("myChart");
+
+  var data = {
+      labels: labels,
+      datasets: 
+        [
+          {
+            data: results, 
+            backgroundColor: colors
+          }
+        ]
+  };
+ 
+
+  var totalResponses = results.reduce((a, b) => a + b, 0);
+  if (totalResponses === 0) {
+    var chartDiv = document.getElementById('chart');
+    chartDiv.innerHTML = '<h3>This poll has no responses yet</h3>';
+  } else {
+  
+    var html = "<table id='legendTable'>"
+    for (var i =0; i<results.length;i++) {
+      html += 
+        "<tr>" +
+          "<td class='legendTD' style='background-color:" + colors[i] + "'>" + results[i] + "</td>" + 
+          "<td class='legendResponse'>" + labels[i] + "</td>" +
+        "</tr>"
+    }
+  
+    html += "</table>";
+    console.log(html);
+    var chartLegend = document.getElementById('legend');
+    chartLegend.innerHTML = html;
+
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: data
+    });
+  }
+ 
+  

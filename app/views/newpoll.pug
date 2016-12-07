@@ -1,0 +1,19 @@
+include partials/header
+#main
+	.col-sm-2
+	form.form-horizontal(action='/newpoll', method='post')
+		fieldset
+			legend New Poll
+			.form-group
+				label.control-label.col-sm-2(for='name') Name
+				.col-sm-6
+					input.form-control(type='text', name='name')
+			.form-group
+				label.control-label.col-sm-2(for='answers') Response choices
+				.col-sm-6
+					input.form-control(type='text', name='answers')
+					p.help-block Separate options with commas
+			.form-group
+				.col-sm-2
+				.col-sm-6
+					input(type='submit', name='submit', value='Submit')
